@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#possible gui frontend
 import sdes
 
 #download python3-tk on debian to use
