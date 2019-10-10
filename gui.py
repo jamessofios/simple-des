@@ -3,7 +3,10 @@
 #looking into TKinter
 from simpledes import *
 
-#download python3-tk on debian to use
+"""
+download python3-tk on debian to use tkinter
+for python3 on debian 10(Stable)
+"""
 from tkinter import *
 
 top = Tk()
@@ -22,5 +25,14 @@ l2.grid(column=0,row=1)
 
 e2 = Entry(top, bd =5)
 e2.grid(column=1,row=1)
+
+r1 = Radiobutton(top, text="Encrypt", value = 1)
+r1.grid(column=1,row=3)
+
+r2 = Radiobutton(top, text="Decrypt", value = 2)
+r2.grid(column=1,row=4)
+
+b1 = Button(top, text = "Go")
+b1.grid(column=1,row=5)
 
 top.mainloop()
