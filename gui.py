@@ -33,21 +33,38 @@ l3 = Label(top, text = "Result:")
 l3.grid(column = 0, row = 2)
 #The result will be printed in a label to prevent the user
 #from deleting the reult by accident
-l4 = Label(top, text = " ")
-l4.grid(column = 1, row = 2)
+#l4 = Label(top, text = " ")
+#l4.grid(column = 1, row = 2)
 
 #Variabe for the radio buttons to work with
-rbVar = IntVar()
+btn1 = IntVar()
 #Encrypt and decrypt radio buttons
-r1 = Radiobutton(top, text="Encrypt", variable = rbVar, value = 1)
+r1 = Radiobutton(top, text="Encrypt", variable = btn1, value = 1)
 r1.grid(column=1,row=3)
 
-r2 = Radiobutton(top, text="Decrypt", variable = rbVar, value = 2)
+r2 = Radiobutton(top, text="Decrypt", variable = btn1, value = 2)
 r2.grid(column=1,row=4)
 
+def onClick():
+	
+	#set variables from getting userdata
+	#if encrypting
+	if(btn1.get() == 1):
+		bitstring = e1.get()
+		key = e2.get()
+		cyphertext = encrypt(bitstring, key)
+		Label(top, text=cyphertext).grid(column = 1, row = 2)
+	#if decrypting
+	elif(btn1.get() == 2):
+		cyphertext = e1.get()
+		key = e2.get()
+		bitstring = decrypt(cyphertext, key)
+		Label(top, text=bitstring).grid(column = 1, row = 2)
+
 #"The Go Button"
-b1 = Button(top, text = "Go")
+b1 = Button(top, text = "Go", command=onClick)
 b1.grid(column=1,row=5)
+
 
 ###########################################
 #tkinter's mainloop
