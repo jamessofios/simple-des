@@ -46,20 +46,32 @@ r2 = Radiobutton(top, text="Decrypt", variable = btn1, value = 2)
 r2.grid(column=1,row=4)
 
 def onClick():
-	
+
 	#set variables from getting userdata
 	#if encrypting
 	if(btn1.get() == 1):
 		bitstring = e1.get()
 		key = e2.get()
-		cyphertext = encrypt(bitstring, key)
-		Label(top, text=cyphertext).grid(column = 1, row = 2)
+		if(len(bitstring) != 8):
+			print("Bitstring must have a length of 8")
+		elif(len(key) != 10):
+			print("Key must have a length of 10")
+		else:
+			cyphertext = encrypt(bitstring, key)
+			Label(top, text=cyphertext).grid(column = 1, row = 2)
 	#if decrypting
 	elif(btn1.get() == 2):
 		cyphertext = e1.get()
 		key = e2.get()
-		bitstring = decrypt(cyphertext, key)
-		Label(top, text=bitstring).grid(column = 1, row = 2)
+		if(len(cyphertext) != 8):
+			print("Bitstring must have a length of 8")
+		elif(len(key) != 10):
+			print("Key must have a length of 10")
+		else:
+			bitstring = decrypt(cyphertext, key)
+			Label(top, text=bitstring).grid(column = 1, row = 2)
+	else:
+		print("Radio button error!")
 
 #"The Go Button"
 b1 = Button(top, text = "Go", command=onClick)
