@@ -3,6 +3,7 @@
 #looking into TKinter
 from simpledes import *
 from tkinter import *
+from tkinter import messagebox
 """
 download python3-tk on debian to use tkinter
 for python3 on debian 10(Stable)
@@ -11,25 +12,26 @@ for python3 on debian 10(Stable)
 #tkinter's main window
 top = Tk()
 top.title("simpledes")
+#top.geometry("300x300")
 ###########################################
 # Code to add widgets will go here...
 
 #label and entry box for the 8 bit bitstring
-l1 = Label(top, text="Bitstring:")
+l1 = Label(top, text="Bitstring(8 bits):")
 l1.grid(column=0,row=0)
 
 e1 = Entry(top, bd = 5)
 e1.grid(column=1,row=0)
 
 #label and entrybox for the 10 bit key bitstring
-l2 = Label(top, text= "Key:")
+l2 = Label(top, text= "Key(10 bits):")
 l2.grid(column = 0, row = 1)
 
 e2 = Entry(top, bd = 5)
 e2.grid(column = 1, row = 1)
 
 #two labels for the result text to populate
-l3 = Label(top, text = "Result:")
+l3 = Label(top, text = "Result(8 bits):")
 l3.grid(column = 0, row = 2)
 #The result will be printed in a label to prevent the user
 #from deleting the reult by accident
@@ -54,8 +56,10 @@ def onClick():
 		key = e2.get()
 		if(len(bitstring) != 8):
 			print("Bitstring must have a length of 8")
+			messagebox.showerror("Error", "Bitstring must have a length of 8!")
 		elif(len(key) != 10):
 			print("Key must have a length of 10")
+			messagebox.showerror("Error", "Key must have a length of 10!")
 		else:
 			cyphertext = encrypt(bitstring, key)
 			Label(top, text=cyphertext).grid(column = 1, row = 2)
@@ -65,20 +69,21 @@ def onClick():
 		key = e2.get()
 		if(len(cyphertext) != 8):
 			print("Bitstring must have a length of 8")
+			messagebox.showerror("Error", "Bitstring must have a length of 8!")
 		elif(len(key) != 10):
 			print("Key must have a length of 10")
+			messagebox.showerror("Error", "Key must have a length of 10!")
 		else:
 			bitstring = decrypt(cyphertext, key)
 			Label(top, text=bitstring).grid(column = 1, row = 2)
 	else:
 		print("Radio button error!")
+		messagebox.showerror("Error", "At least one radio button must be selected!")
 
 #"The Go Button"
 b1 = Button(top, text = "Go", command=onClick)
 b1.grid(column=1,row=5)
 
-
 ###########################################
 #tkinter's mainloop
 top.mainloop()
-
