@@ -4,6 +4,7 @@
 from simpledes import *
 from tkinter import *
 from tkinter import messagebox
+from re import *
 """
 download python3-tk on debian to use tkinter
 for python3 on debian 10(Stable)
@@ -46,7 +47,18 @@ r1.grid(column=1,row=3)
 
 r2 = Radiobutton(top, text="Decrypt", variable = btn1, value = 2)
 r2.grid(column=1,row=4)
-
+def isValid(bitstring, key):
+	pattern = compile("^[01]+$")
+	if( not pattern.match(bitstring) or not pattern.match(key) ):
+		messagebox.showerror("Error", "All fields must contain zeros or ones.")
+	elif(len(bitstring) != 8):
+		print("Bitstring must have a length of 8")
+		messagebox.showerror("Error", "Bitstring must have a length of 8!")
+	elif(len(key) != 10):
+		print("Key must have a length of 10")
+		messagebox.showerror("Error", "Key must have a length of 10!")
+	else:
+		return True
 def onClick():
 
 	#set variables from getting userdata
@@ -54,28 +66,19 @@ def onClick():
 	if(btn1.get() == 1):
 		bitstring = e1.get()
 		key = e2.get()
-		if(len(bitstring) != 8):
-			print("Bitstring must have a length of 8")
-			messagebox.showerror("Error", "Bitstring must have a length of 8!")
-		elif(len(key) != 10):
-			print("Key must have a length of 10")
-			messagebox.showerror("Error", "Key must have a length of 10!")
-		else:
+
+		if(isValid(bitstring, key)):
 			cyphertext = encrypt(bitstring, key)
 			Label(top, text=cyphertext).grid(column = 1, row = 2)
 	#if decrypting
 	elif(btn1.get() == 2):
 		cyphertext = e1.get()
 		key = e2.get()
-		if(len(cyphertext) != 8):
-			print("Bitstring must have a length of 8")
-			messagebox.showerror("Error", "Bitstring must have a length of 8!")
-		elif(len(key) != 10):
-			print("Key must have a length of 10")
-			messagebox.showerror("Error", "Key must have a length of 10!")
-		else:
+
+		if(isValid(cyphertext, key)):
 			bitstring = decrypt(cyphertext, key)
 			Label(top, text=bitstring).grid(column = 1, row = 2)
+	#
 	else:
 		print("Radio button error!")
 		messagebox.showerror("Error", "At least one radio button must be selected!")
