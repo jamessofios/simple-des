@@ -1,1 +1,2 @@
 sdes is a simplified DES encryption/decryption example program written in python3.
+run gui.py for a graphical version.
