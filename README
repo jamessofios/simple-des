@@ -1,2 +1,6 @@
-sdes is a simplified DES encryption/decryption example program written in python3.
-run gui.py for a graphical version.
+simpledes is a simplified DES encryption/decryption example program written in python3.
+run simpledesgui.py for a graphical version.
+run simpledes.py for a terminal version.
+the file simpledes.py contains all of the logic for the encryption/decryption algorithms.
+simpledes.py is imported into simpledesgui.py.
+compile.sh is a script to use nuitka3 to compile this program to a binary.
