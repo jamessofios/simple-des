@@ -50,6 +50,7 @@ r2.grid(column=1,row=4)
 def isValid(bitstring, key):
 	pattern = compile("^[01]+$")
 	if( not pattern.match(bitstring) or not pattern.match(key) ):
+		print("String format error")
 		messagebox.showerror("Error", "All fields must contain zeros or ones.")
 	elif(len(bitstring) != 8):
 		print("Bitstring must have a length of 8")
