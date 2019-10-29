@@ -157,7 +157,7 @@ def main():
 			if(len(cyphertext) != 8):
 				print("Error!")
 				print("Cyphertext must me 8 bits.")
-	elif(len(sys.argv) == 2):	
+	elif(len(sys.argv) == 2):
 		if(sys.argv[1] == "help" or sys.argv[1] == "h"):
 			print("Type (e)ncrypt or (d)ecrypt, 8 bits, and a 10 bit key to run this program.")
 			print("Example of encrypt:")

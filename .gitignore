@@ -1,1 +1,5 @@
 *.pyc
+__*
+*.swp
+*.dist
+*.build
