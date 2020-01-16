@@ -3,3 +3,4 @@ __*
 *.swp
 *.dist
 *.build
+*.bin
