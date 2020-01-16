@@ -4,5 +4,5 @@ Simpledes is a simplified DES encryption/decryption example program written in p
 # Warning!
 This is an academic tool only. Do not use for anything besides learning.
 
-![Encryption Example](screenshots/encryption.png)
-![Decryption Example](screenshots/decryption.png)
+![Encryption Example](screenshots/encrypt.png)
+![Decryption Example](screenshots/decrypt.png)
