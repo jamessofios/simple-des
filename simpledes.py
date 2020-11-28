@@ -136,7 +136,7 @@ def main():
 		print("Welcome! Running in graphical mode.")
 		print("Type (h)elp for help.")
 		print("Example of (h)elp:")
-		print("python " + sys.argv[0] + " h")
+		print(sys.argv[0] + " h")
 		gui()
 	elif(len(sys.argv) == 4):
 		if(sys.argv[1] == "encrypt" or sys.argv[1] == "e"):
@@ -165,9 +165,9 @@ def main():
 		if(sys.argv[1] == "help" or sys.argv[1] == "h"):
 			print("Type (e)ncrypt or (d)ecrypt, 8 bits, and a 10 bit key to run this program.")
 			print("Example of encrypt:")
-			print("python " + sys.argv[0] +  " e 11111111 1111111111")
+			print(sys.argv[0] +  " e 11111111 1111111111")
 			print("Example of decrypt:")
-			print("python "  + sys.argv[0] + " d 11111111 1111111111")
+			print(sys.argv[0] + " d 11111111 1111111111")
 
 def gui():
 	"""
