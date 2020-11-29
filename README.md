@@ -6,7 +6,7 @@ Inside this git repository, run these commands:
 ```
 $ ./simpledes.py #runs the gui version
 
-$ ./simpledesgui.py h #shows help text
+$ ./simpledes.py h #shows help text
 ```
 ![Encryption Example](screenshots/encrypt.png)
 ![Decryption Example](screenshots/decrypt.png)
